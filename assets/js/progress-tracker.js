@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       training: localStorage.getItem("training-progress") || 0,
       equipment: localStorage.getItem("equipment-progress") || 0,
       benefits: localStorage.getItem("benefits-progress") || 0,
+      performance: localStorage.getItem("performance-progress") || 0,
     }
 
     // Update sidebar progress indicators
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateProgressIndicator("training-status", progressData.training)
     updateProgressIndicator("equipment-status", progressData.equipment)
     updateProgressIndicator("benefits-status", progressData.benefits)
+    updateProgressIndicator("performance-status", progressData.performance)
 
     // Calculate overall progress
     const overallProgress = calculateOverallProgress(progressData)
