@@ -1,0 +1,248 @@
+---
+layout: form
+title: Personal Information
+description: Please provide your personal information for HR records.
+completion_time: 10 minutes
+permalink: /forms/personal-information/
+---
+
+{% include patriotic-header.html title="Personal Information" description="Please provide your personal information for American Remodeling Enterprises HR records." %}
+
+<form action="https://formsubmit.co/{{ site.email }}" method="POST" class="needs-validation" novalidate id="personal-info-form">
+  <!-- FormSubmit configuration -->
+  <input type="hidden" name="_subject" value="New Employee Personal Information">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="{{ '/forms/submission-success/' | absolute_url }}">
+  
+  <!-- Honeypot field -->
+  <input type="text" name="_honey" style="display:none">
+  
+  <!-- Personal Information Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Basic Information</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="first-name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first-name" name="First Name" required>
+          <div class="invalid-feedback">
+            Please enter your first name.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="middle-name" class="form-label">Middle Name</label>
+          <input type="text" class="form-control" id="middle-name" name="Middle Name">
+        </div>
+        <div class="col-md-4">
+          <label for="last-name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last-name" name="Last Name" required>
+          <div class="invalid-feedback">
+            Please enter your last name.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="date-of-birth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="date-of-birth" name="Date of Birth" required>
+          <div class="invalid-feedback">
+            Please enter your date of birth.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="gender" class="form-label">Gender</label>
+          <select class="form-select" id="gender" name="Gender" required>
+            <option value="" selected disabled>Select...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select your gender.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" name="Email" required>
+          <div class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" name="Phone" required>
+          <div class="invalid-feedback">
+            Please enter your phone number.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Address Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Address Information</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="street-address" class="form-label">Street Address</label>
+        <input type="text" class="form-control" id="street-address" name="Street Address" required>
+        <div class="invalid-feedback">
+          Please enter your street address.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="address-line2" class="form-label">Address Line 2</label>
+        <input type="text" class="form-control" id="address-line2" name="Address Line 2">
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="City" required>
+          <div class="invalid-feedback">
+            Please enter your city.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="state" class="form-label">State/Province</label>
+          <input type="text" class="form-control" id="state" name="State" required>
+          <div class="invalid-feedback">
+            Please enter your state or province.
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="zip" class="form-label">Zip/Postal Code</label>
+          <input type="text" class="form-control" id="zip" name="Zip" required>
+          <div class="invalid-feedback">
+            Please enter your zip or postal code.
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <select class="form-select" id="country" name="Country" required>
+          <option value="" selected disabled>Select a country...</option>
+          <option value="United States">United States</option>
+          <option value="Canada">Canada</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <!-- Add more countries as needed -->
+        </select>
+        <div class="invalid-feedback">
+          Please select your country.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Emergency Contact Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Emergency Contact</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="emergency-name" class="form-label">Contact Name</label>
+          <input type="text" class="form-control" id="emergency-name" name="Emergency Contact Name" required>
+          <div class="invalid-feedback">
+            Please provide an emergency contact name.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="emergency-relationship" class="form-label">Relationship</label>
+          <input type="text" class="form-control" id="emergency-relationship" name="Emergency Contact Relationship" required>
+          <div class="invalid-feedback">
+            Please specify your relationship to the emergency contact.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="emergency-phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="emergency-phone" name="Emergency Contact Phone" required>
+          <div class="invalid-feedback">
+            Please provide an emergency contact phone number.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="emergency-email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="emergency-email" name="Emergency Contact Email">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="patriotic-divider"></div>
+  
+  <!-- reCAPTCHA v3 -->
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+  
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit">Submit Information</button>
+  </div>
+</form>
+
+<script>
+  // Update progress bar as form fields are completed
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('personal-info-form');
+    const progressBar = document.getElementById('form-progress');
+    const requiredFields = form.querySelectorAll('[required]');
+    const totalFields = requiredFields.length;
+    
+    function updateProgress() {
+      let completedFields = 0;
+      requiredFields.forEach(field => {
+        if (field.value) {
+          completedFields++;
+        }
+      });
+      
+      const percentage = Math.round((completedFields / totalFields) * 100);
+      progressBar.style.width = percentage + '%';
+      progressBar.textContent = percentage + '%';
+      progressBar.setAttribute('aria-valuenow', percentage);
+      
+      // Save progress to localStorage
+      localStorage.setItem('personal-info-progress', percentage);
+    }
+    
+    // Load saved progress
+    const savedProgress = localStorage.getItem('personal-info-progress');
+    if (savedProgress) {
+      progressBar.style.width = savedProgress + '%';
+      progressBar.textContent = savedProgress + '%';
+      progressBar.setAttribute('aria-valuenow', savedProgress);
+    }
+    
+    // Update progress when fields change
+    requiredFields.forEach(field => {
+      field.addEventListener('change', updateProgress);
+      field.addEventListener('keyup', updateProgress);
+    });
+    
+    // Form validation
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      
+      form.classList.add('was-validated');
+    });
+  });
+</script>
+

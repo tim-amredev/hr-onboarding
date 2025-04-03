@@ -1,0 +1,146 @@
+/* Login page styles */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #bf0a30; /* Red */
+}
+
+.login-page::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: #002868; /* Blue */
+}
+
+.login-container {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.login-container img {
+  filter: drop-shadow(0 0.5rem 0.5rem rgba(0, 0, 0, 0.1));
+  max-width: 100%;
+  height: auto;
+}
+
+.form-floating {
+  margin-bottom: 1rem;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #002868;
+}
+
+.form-control:focus {
+  border-color: #002868;
+  box-shadow: 0 0 0 0.25rem rgba(0, 40, 104, 0.25);
+}
+
+.btn-primary {
+  background-color: #002868;
+  border-color: #002868;
+}
+
+.btn-primary:hover {
+  background-color: #001d4a;
+  border-color: #001d4a;
+}
+
+#forgot-password-link {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+#forgot-password-link:hover {
+  color: #002868;
+  text-decoration: underline;
+}
+
+/* Animation for error messages */
+.alert-danger {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Patriotic decorative elements */
+.patriotic-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23002868' d='M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.patriotic-divider {
+  height: 5px;
+  background: linear-gradient(to right, #bf0a30 50%, #002868 50%);
+  margin: 1.5rem 0;
+  border-radius: 2px;
+}
+
+/* HR Portal Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.hr-portal-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.logo-icon {
+  background-color: #007bff;
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+

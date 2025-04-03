@@ -1,0 +1,57 @@
+---
+layout: login
+title: Login
+---
+
+<div class="patriotic-stars"></div>
+
+<div class="text-center mb-4">
+  <div class="logo-container mb-3">
+    <div class="hr-portal-logo">
+      <div class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      </div>
+      <div class="logo-text">HR Portal</div>
+    </div>
+  </div>
+  <h1 class="h3 mb-3 font-weight-normal">HR Onboarding Portal</h1>
+  <p>Welcome to American Remodeling Enterprises & Epoxy Floor Experts</p>
+  <div class="patriotic-divider"></div>
+</div>
+
+<form id="login-form" class="needs-validation" novalidate>
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+    <label for="email">Email address</label>
+    <div class="invalid-feedback">
+      Please enter a valid email address.
+    </div>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control" id="password" placeholder="Password" required>
+    <label for="password">Password</label>
+    <div class="invalid-feedback">
+      Please enter your password.
+    </div>
+  </div>
+  
+  <!-- Honeypot field for bot protection -->
+  <div class="d-none">
+    <input type="text" name="bot-field" id="bot-field">
+  </div>
+  
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" value="" id="remember-me">
+    <label class="form-check-label" for="remember-me">
+      Remember me
+    </label>
+  </div>
+  
+  <button class="w-100 btn btn-lg btn-primary" type="submit" id="login-button">Sign in</button>
+  
+  <div class="mt-3 text-center">
+    <a href="#" id="forgot-password-link">Forgot password?</a>
+  </div>
+</form>
+

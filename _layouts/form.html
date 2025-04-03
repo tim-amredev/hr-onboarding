@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h2 class="mb-0">{{ page.title }}</h2>
+  </div>
+  <div class="card-body">
+    {% if page.description %}
+    <p class="lead mb-4">{{ page.description }}</p>
+    {% endif %}
+    
+    <div class="progress mb-4">
+      <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="form-progress">0%</div>
+    </div>
+    
+    {{ content }}
+  </div>
+  <div class="card-footer text-muted">
+    <small>Estimated completion time: {{ page.completion_time | default: "5-10 minutes" }}</small>
+  </div>
+</div>
+
