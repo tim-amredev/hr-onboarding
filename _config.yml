@@ -14,6 +14,9 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Add permalink settings to ensure consistent URL structure
+permalink: pretty
+
 # Collections for different types of content
 collections:
   policies:
