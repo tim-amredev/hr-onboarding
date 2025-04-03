@@ -34,18 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // For demo purposes, any login works
         // In production, implement proper authentication
         localStorage.setItem("hr-onboarding-authenticated", "true")
-        window.location.href = "/hr-onboarding/dashboard/"
+        window.location.href = "/hr-onboarding/dashboard/" // Updated to use the correct Jekyll URL format
       }, 1500)
     })
   }
 
   // Check if user is already logged in
   const isAuthenticated = localStorage.getItem("hr-onboarding-authenticated") === "true"
+  const currentPath = window.location.pathname
+
+  // Check if we're on the login page (with various possible URL formats)
   if (
     isAuthenticated &&
-    (window.location.pathname.endsWith("index.html") ||
-      window.location.pathname.endsWith("/hr-onboarding/") ||
-      window.location.pathname.endsWith("/hr-onboarding"))
+    (currentPath === "/hr-onboarding/" ||
+      currentPath === "/hr-onboarding" ||
+      currentPath === "/hr-onboarding/index.html")
   ) {
     window.location.href = "/hr-onboarding/dashboard/"
   }
