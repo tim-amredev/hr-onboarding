@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Get form values
-      const email = document.getElementById("email").value
+      const username = document.getElementById("username").value
       const password = document.getElementById("password").value
 
       // Simple validation
-      if (!email || !password) {
-        showError("Please enter both email and password.")
+      if (!username || !password) {
+        showError("Please enter both username and password.")
         return
       }
 
@@ -29,13 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Signing in...'
       loginButton.disabled = true
 
-      // Simulate login (in a real app, this would be an API call)
+      // Check credentials
       setTimeout(() => {
-        // For demo purposes, any login works
-        // In production, implement proper authentication
-        localStorage.setItem("hr-onboarding-authenticated", "true")
-        window.location.href = "/hr-onboarding/dashboard/" // Updated to use the correct Jekyll URL format
-      }, 1500)
+        if (username === "admin" && password === "AmericanHR!1") {
+          // Successful login
+          localStorage.setItem("hr-onboarding-authenticated", "true")
+          window.location.href = "/hr-onboarding/dashboard/"
+        } else {
+          // Failed login
+          loginButton.innerHTML = "Sign in"
+          loginButton.disabled = false
+          showError("Invalid username or password. Please try again.")
+        }
+      }, 1000)
     })
   }
 
@@ -64,6 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showError(message) {
+    // Remove any existing error messages
+    const existingErrors = document.querySelectorAll(".alert-danger")
+    existingErrors.forEach((error) => error.remove())
+
+    // Create new error message
     const errorDiv = document.createElement("div")
     errorDiv.className = "alert alert-danger mt-3"
     errorDiv.textContent = message
