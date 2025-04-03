@@ -1,0 +1,360 @@
+---
+layout: form
+title: Benefits Enrollment
+description: Select your benefits options and complete enrollment forms.
+completion_time: 20 minutes
+permalink: /forms/benefits/
+---
+
+{% include patriotic-header.html title="Benefits Enrollment" description="Select your benefits options for American Remodeling Enterprises." %}
+
+<form action="https://formsubmit.co/{{ site.email }}" method="POST" class="needs-validation" novalidate id="benefits-form">
+  <!-- FormSubmit configuration -->
+  <input type="hidden" name="_subject" value="Benefits Enrollment Submission">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="{{ '/forms/submission-success/' | absolute_url }}">
+  
+  <!-- Honeypot field -->
+  <input type="text" name="_honey" style="display:none">
+  
+  <!-- Health Insurance Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Health Insurance</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <label class="form-label">Select a Health Insurance Plan</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Health Plan" id="health-basic" value="Basic Plan" required>
+          <label class="form-check-label" for="health-basic">
+            <strong>Basic Plan</strong> - $50/month
+            <p class="text-muted small mb-0">Basic coverage with $2,000 deductible, 70% coinsurance</p>
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Health Plan" id="health-standard" value="Standard Plan" required>
+          <label class="form-check-label" for="health-standard">
+            <strong>Standard Plan</strong> - $100/month
+            <p class="text-muted small mb-0">Enhanced coverage with $1,000 deductible, 80% coinsurance</p>
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Health Plan" id="health-premium" value="Premium Plan" required>
+          <label class="form-check-label" for="health-premium">
+            <strong>Premium Plan</strong> - $200/month
+            <p class="text-muted small mb-0">Comprehensive coverage with $500 deductible, 90% coinsurance</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Health Plan" id="health-waive" value="Waive Coverage" required>
+          <label class="form-check-label" for="health-waive">
+            <strong>Waive Coverage</strong>
+            <p class="text-muted small mb-0">I decline health insurance coverage</p>
+          </label>
+        </div>
+        <div class="invalid-feedback">
+          Please select a health insurance option.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Coverage Level</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Coverage Level" id="coverage-employee" value="Employee Only" required>
+          <label class="form-check-label" for="coverage-employee">Employee Only</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Coverage Level" id="coverage-spouse" value="Employee + Spouse" required>
+          <label class="form-check-label" for="coverage-spouse">Employee + Spouse</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Coverage Level" id="coverage-children" value="Employee + Children" required>
+          <label class="form-check-label" for="coverage-children">Employee + Children</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Coverage Level" id="coverage-family" value="Family" required>
+          <label class="form-check-label" for="coverage-family">Family</label>
+        </div>
+        <div class="invalid-feedback">
+          Please select a coverage level.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dental & Vision Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Dental & Vision</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <label class="form-label">Dental Insurance</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Dental Plan" id="dental-basic" value="Basic Dental" required>
+          <label class="form-check-label" for="dental-basic">
+            <strong>Basic Dental</strong> - $15/month
+            <p class="text-muted small mb-0">Preventive care, basic procedures</p>
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Dental Plan" id="dental-premium" value="Premium Dental" required>
+          <label class="form-check-label" for="dental-premium">
+            <strong>Premium Dental</strong> - $30/month
+            <p class="text-muted small mb-0">Comprehensive coverage including orthodontics</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Dental Plan" id="dental-waive" value="Waive Dental" required>
+          <label class="form-check-label" for="dental-waive">
+            <strong>Waive Coverage</strong>
+          </label>
+        </div>
+        <div class="invalid-feedback">
+          Please select a dental insurance option.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Vision Insurance</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Vision Plan" id="vision-basic" value="Vision Plan" required>
+          <label class="form-check-label" for="vision-basic">
+            <strong>Vision Plan</strong> - $10/month
+            <p class="text-muted small mb-0">Eye exams, glasses/contacts allowance</p>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Vision Plan" id="vision-waive" value="Waive Vision" required>
+          <label class="form-check-label" for="vision-waive">
+            <strong>Waive Coverage</strong>
+          </label>
+        </div>
+        <div class="invalid-feedback">
+          Please select a vision insurance option.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Retirement & Financial Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Retirement & Financial Benefits</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <label for="retirement-contribution" class="form-label">401(k) Contribution Percentage</label>
+        <div class="input-group mb-2">
+          <input type="number" class="form-control" id="retirement-contribution" name="401k Contribution" min="0" max="100" step="1" required>
+          <span class="input-group-text">%</span>
+        </div>
+        <div class="form-text">Company matches 50% of your contribution up to 6% of your salary.</div>
+        <div class="invalid-feedback">
+          Please enter a valid contribution percentage (0-100).
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Additional Financial Benefits</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Financial Benefits" id="benefit-fsa" value="FSA">
+          <label class="form-check-label" for="benefit-fsa">
+            Flexible Spending Account (FSA)
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Financial Benefits" id="benefit-hsa" value="HSA">
+          <label class="form-check-label" for="benefit-hsa">
+            Health Savings Account (HSA) - Only available with Basic Health Plan
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Financial Benefits" id="benefit-life" value="Life Insurance">
+          <label class="form-check-label" for="benefit-life">
+            Supplemental Life Insurance
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Financial Benefits" id="benefit-disability" value="Disability Insurance">
+          <label class="form-check-label" for="benefit-disability">
+            Long-term Disability Insurance
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Additional Benefits Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Additional Benefits</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Select Additional Benefits</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Additional Benefits" id="benefit-gym" value="Gym Membership">
+          <label class="form-check-label" for="benefit-gym">
+            Gym Membership Reimbursement (up to $50/month)
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Additional Benefits" id="benefit-education" value="Education Assistance">
+          <label class="form-check-label" for="benefit-education">
+            Education Assistance Program
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Additional Benefits" id="benefit-commuter" value="Commuter Benefits">
+          <label class="form-check-label" for="benefit-commuter">
+            Commuter Benefits
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Additional Benefits" id="benefit-wellness" value="Wellness Program">
+          <label class="form-check-label" for="benefit-wellness">
+            Wellness Program Participation
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="patriotic-divider"></div>
+  
+  <!-- Acknowledgment Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Acknowledgment</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="acknowledgment" name="Acknowledgment" value="I acknowledge that I have reviewed and understand my benefit selections" required>
+          <label class="form-check-label" for="acknowledgment">
+            I acknowledge that I have reviewed and understand my benefit selections. I authorize American Remodeling Enterprises to make the appropriate payroll deductions based on my selections.
+          </label>
+          <div class="invalid-feedback">
+            You must acknowledge your benefit selections before proceeding.
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="signature" class="form-label">Digital Signature</label>
+        <input type="text" class="form-control" id="signature" name="Digital Signature" required>
+        <div class="invalid-feedback">
+          Please enter your digital signature (full name).
+        </div>
+        <div class="form-text">Type your full name as your digital signature.</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="Date" required>
+        <div class="invalid-feedback">
+          Please select the current date.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- reCAPTCHA v3 -->
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+  
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit">Submit Benefits Enrollment</button>
+  </div>
+</form>
+
+<script>
+// Update progress bar as form fields are completed
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('benefits-form');
+  const progressBar = document.getElementById('form-progress');
+  const requiredFields = form.querySelectorAll('[required]');
+  const totalFields = requiredFields.length;
+  
+  function updateProgress() {
+    let completedFields = 0;
+    requiredFields.forEach(field => {
+      if (field.type === 'radio') {
+        // For radio buttons, check if any in the group is checked
+        const name = field.name;
+        const group = form.querySelectorAll(`input[name="${name}"]:checked`);
+        if (group.length > 0) {
+          completedFields++;
+        }
+      } else if (field.type === 'checkbox') {
+        if (field.checked) {
+          completedFields++;
+        }
+      } else {
+        if (field.value) {
+          completedFields++;
+        }
+      }
+    });
+    
+    // Adjust for radio button groups (count each group only once)
+    const radioGroups = new Set();
+    form.querySelectorAll('input[type="radio"][required]').forEach(radio => {
+      radioGroups.add(radio.name);
+    });
+    
+    const uniqueFields = totalFields - form.querySelectorAll('input[type="radio"][required]').length + radioGroups.size;
+    const percentage = Math.round((completedFields / uniqueFields) * 100);
+    
+    progressBar.style.width = percentage + '%';
+    progressBar.textContent = percentage + '%';
+    progressBar.setAttribute('aria-valuenow', percentage);
+    
+    // Save progress to localStorage
+    localStorage.setItem('benefits-progress', percentage);
+  }
+  
+  // Load saved progress
+  const savedProgress = localStorage.getItem('benefits-progress');
+  if (savedProgress) {
+    progressBar.style.width = savedProgress + '%';
+    progressBar.textContent = savedProgress + '%';
+    progressBar.setAttribute('aria-valuenow', savedProgress);
+  }
+  
+  // Update progress when fields change
+  requiredFields.forEach(field => {
+    field.addEventListener('change', updateProgress);
+  });
+  
+  // Form validation
+  form.addEventListener('submit', function(event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    
+    form.classList.add('was-validated');
+  });
+  
+  // Show/hide HSA option based on health plan selection
+  const healthPlanRadios = document.querySelectorAll('input[name="Health Plan"]');
+  const hsaCheckbox = document.getElementById('benefit-hsa');
+  
+  healthPlanRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.id === 'health-basic') {
+        hsaCheckbox.disabled = false;
+        hsaCheckbox.parentElement.classList.remove('text-muted');
+      } else {
+        hsaCheckbox.disabled = true;
+        hsaCheckbox.checked = false;
+        hsaCheckbox.parentElement.classList.add('text-muted');
+      }
+      updateProgress();
+    });
+  });
+});
+</script>
