@@ -29,8 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Signing in...'
       loginButton.disabled = true
 
-      // Check credentials
+      // Check credentials - FIXED: Exact match for credentials
       setTimeout(() => {
+        // For demo purposes, hardcoded credentials
         if (username === "admin" && password === "AmericanHR!1") {
           // Successful login
           localStorage.setItem("hr-onboarding-authenticated", "true")
@@ -82,10 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("login-form")
     form.parentNode.insertBefore(errorDiv, form.nextSibling)
 
-    // Remove after 3 seconds
+    // Remove after 5 seconds
     setTimeout(() => {
       errorDiv.remove()
-    }, 3000)
+    }, 5000)
   }
 })
 
