@@ -1,0 +1,916 @@
+---
+layout: form
+title: Equipment Request
+description: Request necessary equipment for your work.
+completion_time: 5 minutes
+permalink: /forms/equipment-request/
+---
+
+{% include patriotic-header.html title="Equipment Request" description="Request the equipment you need to perform your job effectively." %}
+
+<form action="https://formsubmit.co/{{ site.email }}" method="POST" class="needs-validation" novalidate id="equipment-form">
+  <!-- FormSubmit configuration -->
+  <input type="hidden" name="_subject" value="Equipment Request Submission">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="{{ '/forms/submission-success/' | absolute_url }}">
+  
+  <!-- Honeypot field -->
+  <input type="text" name="_honey" style="display:none">
+  
+  <!-- Employee Information Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Employee Information</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="full-name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="full-name" name="Full Name" required>
+          <div class="invalid-feedback">
+            Please enter your full name.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="employee-id" class="form-label">Employee ID</label>
+          <input type="text" class="form-control" id="employee-id" name="Employee ID" required>
+          <div class="invalid-feedback">
+            Please enter your employee ID.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="department" class="form-label">Department</label>
+          <select class="form-select" id="department" name="Department" required>
+            <option value="" selected disabled>Select department...</option>
+            <option value="Installation">Installation</option>
+            <option value="Sales">Sales</option>
+            <option value="Customer Service">Customer Service</option>
+            <option value="Administration">Administration</option>
+            <option value="Management">Management</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select your department.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="job-title" class="form-label">Job Title</label>
+          <input type="text" class="form-control" id="job-title" name="Job Title" required>
+          <div class="invalid-feedback">
+            Please enter your job title.
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="work-location" class="form-label">Work Location</label>
+        <select class="form-select" id="work-location" name="Work Location" required>
+          <option value="" selected disabled>Select work location...</option>
+          <option value="Main Office">Main Office</option>
+          <option value="Field">Field</option>
+          <option value="Remote">Remote</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select your work location.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Computer Equipment Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Computer Equipment</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Computer Type</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Computer Type" id="computer-desktop" value="Desktop">
+          <label class="form-check-label" for="computer-desktop">
+            Desktop Computer
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Computer Type" id="computer-laptop" value="Laptop">
+          <label class="form-check-label" for="computer-laptop">
+            Laptop Computer
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Computer Type" id="computer-none" value="None" checked>
+          <label class="form-check-label" for="computer-none">
+            No Computer Needed
+          </label>
+        </div>
+      </div>
+      
+      <div id="computer-specs" class="mb-3" style="display: none;">
+        <label for="computer-specs-text" class="form-label">Special Requirements or Specifications</label>
+        <textarea class="form-control" id="computer-specs-text" name="Computer Specifications" rows="3"></textarea>
+        <div class="form-text">Please specify any special requirements (e.g., software, memory, processing power).</div>
+      </div>
+      
+      <div class="mb-3">
+        <label class="form-label">Accessories</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Accessories" id="accessory-monitor" value="Monitor">
+          <label class="form-check-label" for="accessory-monitor">
+            Monitor
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Accessories" id="accessory-keyboard" value="Keyboard">
+          <label class="form-check-label" for="accessory-keyboard">
+            Keyboard
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Accessories" id="accessory-mouse" value="Mouse">
+          <label class="form-check-label" for="accessory-mouse">
+            Mouse
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" name="Accessories" id="accessory-headset" value="Headset">
+          <label class="form-check-label" for="accessory-headset">
+            Headset
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="Accessories" id="accessory-docking" value="Docking Station">
+          <label class="form-check-label" for="accessory-docking">
+            Docking Station (for laptop)
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mobile Equipment Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Mobile Equipment</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label class="form-label">Mobile Device</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Mobile Device" id="mobile-smartphone" value="Smartphone">
+          <label class="form-check-label" for="mobile-smartphone">
+            Smartphone
+          </label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Mobile Device" id="mobile-tablet" value="Tablet">
+          <label class="form-check-label" for="mobile-tablet">
+            Tablet
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Mobile Device" id="mobile-none" value="None" checked>
+          <label class="form-check-label" for="mobile-none">
+            No Mobile Device Needed
+          </label>
+        </div>
+      </div>
+      
+      <div id="mobile-plan" class="mb-3" style="display: none;">
+        <label class="form-label">Mobile Plan</label>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="Mobile Plan" id="plan-company" value="Company Plan">
+          <label class="form-check-label" for="plan-company">
+            Company Mobile Plan
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="Mobile Plan" id="plan-reimbursement" value="Reimbursement">
+          <label class="form-check-label" for="plan-reimbursement">
+            Personal Device Reimbursement
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Job-Specific Equipment Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Job-Specific Equipment</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="job-equipment" class="form-label">Additional Equipment Needed</label>
+        <textarea class="form-control" id="job-equipment" name="Job-Specific Equipment" rows="3"></textarea>
+        <div class="form-text">Please list any job-specific equipment you need (e.g., tools, safety equipment, specialized devices).</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="equipment-justification" class="form-label">Justification</label>
+        <textarea class="form-control" id="equipment-justification" name="Equipment Justification" rows="3"></textarea>
+        <div class="form-text">Please explain why this equipment is necessary for your role.</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Delivery Information Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Delivery Information</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="delivery-address" class="form-label">Delivery Address</label>
+        <textarea class="form-control" id="delivery-address" name="Delivery Address" rows="3" required></textarea>
+        <div class="invalid-feedback">
+          Please enter a delivery address.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="delivery-date" class="form-label">Requested Delivery Date</label>
+        <input type="date" class="form-control" id="delivery-date" name="Requested Delivery Date" required>
+        <div class="invalid-feedback">
+          Please select a requested delivery date.
+        </div>
+        <div class="form-text">Please allow at least 5-7 business days for processing and delivery.</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="special-instructions" class="form-label">Special Delivery Instructions</label>
+        <textarea class="form-control" id="special-instructions" name="Special Delivery Instructions" rows="2"></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div class="patriotic-divider"></div>
+  
+  <!-- Approval Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Approval</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="manager-name" class="form-label">Manager's Name</label>
+        <input type="text" class="form-control" id="manager-name" name="Manager Name" required>
+        <div class="invalid-feedback">
+          Please enter your manager's name.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="manager-email" class="form-label">Manager's Email</label>
+        <input type="email" class="form-control" id="manager-email" name="Manager Email" required>
+        <div class="invalid-feedback">
+          Please enter a valid email address for your manager.
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="acknowledgment" name="Acknowledgment" value="I acknowledge that all equipment remains company property" required>
+          <label class="form-check-label" for="acknowledgment">
+            I acknowledge that all equipment provided remains the property of American Remodeling Enterprises and must be returned upon termination of employment or when requested.
+          </label>
+          <div class="invalid-feedback">
+            You must acknowledge this statement before proceeding.
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="signature" class="form-label">Digital Signature</label>
+        <input type="text" class="form-control" id="signature" name="Digital Signature" required>
+        <div class="invalid-feedback">
+          Please enter your digital signature (full name).
+        </div>
+        <div class="form-text">Type your full name as your digital signature.</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="Date" required>
+        <div class="invalid-feedback">
+          Please select the current date.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- reCAPTCHA v3 -->
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+  
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit">Submit Equipment Request</button>
+  </div>
+</form>
+
+<script>
+// Update progress bar as form fields are completed
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('equipment-form');
+  const progressBar = document.getElementById('form-progress');
+  const requiredFields = form.querySelectorAll('[required]');
+  const totalFields = requiredFields.length;
+  
+  // Show/hide computer specs based on computer type selection
+  const computerTypeRadios = document.querySelectorAll('input[name="Computer Type"]');
+  const computerSpecs = document.getElementById('computer-specs');
+  
+  computerTypeRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.id === 'computer-desktop' || this.id === 'computer-laptop') {
+        computerSpecs.style.display = 'block';
+      } else {
+        computerSpecs.style.display = 'none';
+      }
+      updateProgress();
+    });
+  });
+  
+  // Show/hide mobile plan based on mobile device selection
+  const mobileDeviceRadios = document.querySelectorAll('input[name="Mobile Device"]');
+  const mobilePlan = document.getElementById('mobile-plan');
+  
+  mobileDeviceRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.id === 'mobile-smartphone' || this.id === 'mobile-tablet') {
+        mobilePlan.style.display = 'block';
+      } else {
+        mobilePlan.style.display = 'none';
+      }
+      updateProgress();
+    });
+  });
+  
+  function updateProgress() {
+    let completedFields = 0;
+    requiredFields.forEach(field => {
+      if (field.type === 'radio') {
+        // For radio buttons, check if any in the group is checked
+        const name = field.name;
+        const group = form.querySelectorAll(`input[name="${name}"]:checked`);
+        if (group.length > 0) {
+          completedFields++;
+        }
+      } else if (field.type === 'checkbox') {
+        if (field.checked) {
+          completedFields++;
+        }
+      } else {
+        if (field.value) {
+          completedFields++;
+        }
+      }
+    });
+    
+    // Adjust for radio button groups (count each group only once)
+    const radioGroups = new Set();
+    form.querySelectorAll('input[type="radio"][required]').forEach(radio => {
+      radioGroups.add(radio.name);
+    });
+    
+    const uniqueFields = totalFields - form.querySelectorAll('input[type="radio"][required]').length + radioGroups.size;
+    const percentage = Math.round((completedFields / uniqueFields) * 100);
+    
+    progressBar.style.width = percentage + '%';
+    progressBar.textContent = percentage + '%';
+    progressBar.setAttribute('aria-valuenow', percentage);
+    
+    // Save progress to localStorage
+    localStorage.setItem('equipment-progress', percentage);
+  }
+  
+  // Load saved progress
+  const savedProgress = localStorage.getItem('equipment-progress');
+  if (savedProgress) {
+    progressBar.style.width = savedProgress + '%';
+    progressBar.textContent = savedProgress + '%';
+    progressBar.setAttribute('aria-valuenow', savedProgress);
+  }
+  
+  // Update progress when fields change
+  requiredFields.forEach(field => {
+    field.addEventListener('change', updateProgress);
+    field.addEventListener('keyup', updateProgress);
+  });
+  
+  // Form validation
+  form.addEventListener('submit', function(event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    
+    form.classList.add('was-validated');
+  });
+});
+</script>
+
+## 3. Now, let's create the Performance Review page:
+
+```html file="forms/performance-review/index.html"
+---
+layout: form
+title: Performance Review
+description: Complete your self-assessment for your performance review.
+completion_time: 30 minutes
+permalink: /forms/performance-review/
+---
+
+{% include patriotic-header.html title="Performance Review Self-Assessment" description="Complete your self-assessment for your annual performance review." %}
+
+<form action="https://formsubmit.co/{{ site.email }}" method="POST" class="needs-validation" novalidate id="performance-form">
+  &lt;!-- FormSubmit configuration -->
+  <input type="hidden" name="_subject" value="Performance Review Self-Assessment">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="{{ '/forms/submission-success/' | absolute_url }}">
+  
+  &lt;!-- Honeypot field -->
+  <input type="text" name="_honey" style="display:none">
+  
+  &lt;!-- Employee Information Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Employee Information</h3>
+    </div>
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="full-name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="full-name" name="Full Name" required>
+          <div class="invalid-feedback">
+            Please enter your full name.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="employee-id" class="form-label">Employee ID</label>
+          <input type="text" class="form-control" id="employee-id" name="Employee ID" required>
+          <div class="invalid-feedback">
+            Please enter your employee ID.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="department" class="form-label">Department</label>
+          <select class="form-select" id="department" name="Department" required>
+            <option value="" selected disabled>Select department...</option>
+            <option value="Installation">Installation</option>
+            <option value="Sales">Sales</option>
+            <option value="Customer Service">Customer Service</option>
+            <option value="Administration">Administration</option>
+            <option value="Management">Management</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select your department.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="job-title" class="form-label">Job Title</label>
+          <input type="text" class="form-control" id="job-title" name="Job Title" required>
+          <div class="invalid-feedback">
+            Please enter your job title.
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="manager-name" class="form-label">Manager's Name</label>
+          <input type="text" class="form-control" id="manager-name" name="Manager Name" required>
+          <div class="invalid-feedback">
+            Please enter your manager's name.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="review-period" class="form-label">Review Period</label>
+          <select class="form-select" id="review-period" name="Review Period" required>
+            <option value="" selected disabled>Select review period...</option>
+            <option value="Annual 2023">Annual 2023</option>
+            <option value="Mid-Year 2023">Mid-Year 2023</option>
+            <option value="Quarterly Q1 2023">Quarterly Q1 2023</option>
+            <option value="Quarterly Q2 2023">Quarterly Q2 2023</option>
+            <option value="Quarterly Q3 2023">Quarterly Q3 2023</option>
+            <option value="Quarterly Q4 2023">Quarterly Q4 2023</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select the review period.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  &lt;!-- Performance Assessment Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Performance Self-Assessment</h3>
+    </div>
+    <div class="card-body">
+      <p class="mb-3">Rate your performance in the following areas on a scale of 1-5:</p>
+      <p class="small text-muted mb-4">1 = Needs Improvement, 2 = Below Expectations, 3 = Meets Expectations, 4 = Exceeds Expectations, 5 = Outstanding</p>
+      
+      &lt;!-- Job Knowledge -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Job Knowledge</label>
+        <p class="text-muted small mb-2">Understanding of job-related skills, procedures, and concepts required to perform the job effectively.</p>
+        <div class="d-flex justify-content-between mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Job Knowledge Rating" id="job-knowledge-1" value="1" required>
+            <label class="form-check-label" for="job-knowledge-1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Job Knowledge Rating" id="job-knowledge-2" value="2" required>
+            <label class="form-check-label" for="job-knowledge-2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Job Knowledge Rating" id="job-knowledge-3" value="3" required>
+            <label class="form-check-label" for="job-knowledge-3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Job Knowledge Rating" id="job-knowledge-4" value="4" required>
+            <label class="form-check-label" for="job-knowledge-4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Job Knowledge Rating" id="job-knowledge-5" value="5" required>
+            <label class="form-check-label" for="job-knowledge-5">5</label>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please rate your job knowledge.
+        </div>
+        <div class="mb-3">
+          <label for="job-knowledge-comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="job-knowledge-comments" name="Job Knowledge Comments" rows="2" required></textarea>
+          <div class="invalid-feedback">
+            Please provide comments on your job knowledge.
+          </div>
+        </div>
+      </div>
+      
+      &lt;!-- Quality of Work -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Quality of Work</label>
+        <p class="text-muted small mb-2">Accuracy, thoroughness, and effectiveness of work performed.</p>
+        <div class="d-flex justify-content-between mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Quality Rating" id="quality-1" value="1" required>
+            <label class="form-check-label" for="quality-1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Quality Rating" id="quality-2" value="2" required>
+            <label class="form-check-label" for="quality-2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Quality Rating" id="quality-3" value="3" required>
+            <label class="form-check-label" for="quality-3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Quality Rating" id="quality-4" value="4" required>
+            <label class="form-check-label" for="quality-4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Quality Rating" id="quality-5" value="5" required>
+            <label class="form-check-label" for="quality-5">5</label>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please rate your quality of work.
+        </div>
+        <div class="mb-3">
+          <label for="quality-comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="quality-comments" name="Quality Comments" rows="2" required></textarea>
+          <div class="invalid-feedback">
+            Please provide comments on your quality of work.
+          </div>
+        </div>
+      </div>
+      
+      &lt;!-- Productivity -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Productivity</label>
+        <p class="text-muted small mb-2">Volume of work produced, efficiency, and ability to meet deadlines.</p>
+        <div class="d-flex justify-content-between mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Productivity Rating" id="productivity-1" value="1" required>
+            <label class="form-check-label" for="productivity-1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Productivity Rating" id="productivity-2" value="2" required>
+            <label class="form-check-label" for="productivity-2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Productivity Rating" id="productivity-3" value="3" required>
+            <label class="form-check-label" for="productivity-3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Productivity Rating" id="productivity-4" value="4" required>
+            <label class="form-check-label" for="productivity-4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Productivity Rating" id="productivity-5" value="5" required>
+            <label class="form-check-label" for="productivity-5">5</label>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please rate your productivity.
+        </div>
+        <div class="mb-3">
+          <label for="productivity-comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="productivity-comments" name="Productivity Comments" rows="2" required></textarea>
+          <div class="invalid-feedback">
+            Please provide comments on your productivity.
+          </div>
+        </div>
+      </div>
+      
+      &lt;!-- Communication -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Communication</label>
+        <p class="text-muted small mb-2">Effectiveness in expressing ideas, listening, and sharing information.</p>
+        <div class="d-flex justify-content-between mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Communication Rating" id="communication-1" value="1" required>
+            <label class="form-check-label" for="communication-1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Communication Rating" id="communication-2" value="2" required>
+            <label class="form-check-label" for="communication-2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Communication Rating" id="communication-3" value="3" required>
+            <label class="form-check-label" for="communication-3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Communication Rating" id="communication-4" value="4" required>
+            <label class="form-check-label" for="communication-4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Communication Rating" id="communication-5" value="5" required>
+            <label class="form-check-label" for="communication-5">5</label>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please rate your communication skills.
+        </div>
+        <div class="mb-3">
+          <label for="communication-comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="communication-comments" name="Communication Comments" rows="2" required></textarea>
+          <div class="invalid-feedback">
+            Please provide comments on your communication skills.
+          </div>
+        </div>
+      </div>
+      
+      &lt;!-- Teamwork -->
+      <div class="mb-4">
+        <label class="form-label fw-bold">Teamwork</label>
+        <p class="text-muted small mb-2">Ability to work effectively with others, contribute to team goals, and collaborate.</p>
+        <div class="d-flex justify-content-between mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Teamwork Rating" id="teamwork-1" value="1" required>
+            <label class="form-check-label" for="teamwork-1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Teamwork Rating" id="teamwork-2" value="2" required>
+            <label class="form-check-label" for="teamwork-2">2</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Teamwork Rating" id="teamwork-3" value="3" required>
+            <label class="form-check-label" for="teamwork-3">3</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Teamwork Rating" id="teamwork-4" value="4" required>
+            <label class="form-check-label" for="teamwork-4">4</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="Teamwork Rating" id="teamwork-5" value="5" required>
+            <label class="form-check-label" for="teamwork-5">5</label>
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          Please rate your teamwork.
+        </div>
+        <div class="mb-3">
+          <label for="teamwork-comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="teamwork-comments" name="Teamwork Comments" rows="2" required></textarea>
+          <div class="invalid-feedback">
+            Please provide comments on your teamwork.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  &lt;!-- Achievements and Goals Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Achievements and Goals</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <label for="key-achievements" class="form-label">Key Achievements</label>
+        <p class="text-muted small mb-2">List your major accomplishments during this review period.</p>
+        <textarea class="form-control" id="key-achievements" name="Key Achievements" rows="4" required></textarea>
+        <div class="invalid-feedback">
+          Please list your key achievements.
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <label for="challenges" class="form-label">Challenges Faced</label>
+        <p class="text-muted small mb-2">Describe any significant challenges you encountered and how you addressed them.</p>
+        <textarea class="form-control" id="challenges" name="Challenges" rows="4" required></textarea>
+        <div class="invalid-feedback">
+          Please describe challenges you faced.
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <label for="goals-previous" class="form-label">Previous Goals Progress</label>
+        <p class="text-muted small mb-2">Discuss progress on goals set in your previous review.</p>
+        <textarea class="form-control" id="goals-previous" name="Previous Goals Progress" rows="4"></textarea>
+      </div>
+      
+      <div class="mb-4">
+        <label for="goals-future" class="form-label">Future Goals</label>
+        <p class="text-muted small mb-2">Outline your professional goals for the next review period.</p>
+        <textarea class="form-control" id="goals-future" name="Future Goals" rows="4" required></textarea>
+        <div class="invalid-feedback">
+          Please outline your future goals.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  &lt;!-- Professional Development Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Professional Development</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <label for="training-completed" class="form-label">Training Completed</label>
+        <p class="text-muted small mb-2">List any training, certifications, or educational activities completed during this review period.</p>
+        <textarea class="form-control" id="training-completed" name="Training Completed" rows="3"></textarea>
+      </div>
+      
+      <div class="mb-4">
+        <label for="training-needed" class="form-label">Development Needs</label>
+        <p class="text-muted small mb-2">Identify areas where additional training or development would help you improve.</p>
+        <textarea class="form-control" id="training-needed" name="Development Needs" rows="3" required></textarea>
+        <div class="invalid-feedback">
+          Please identify your development needs.
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <label for="career-aspirations" class="form-label">Career Aspirations</label>
+        <p class="text-muted small mb-2">Describe your long-term career goals and aspirations.</p>
+        <textarea class="form-control" id="career-aspirations" name="Career Aspirations" rows="3" required></textarea>
+        <div class="invalid-feedback">
+          Please describe your career aspirations.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  &lt;!-- Additional Comments Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Additional Comments</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="additional-comments" class="form-label">Any other comments or feedback you would like to share</label>
+        <textarea class="form-control" id="additional-comments" name="Additional Comments" rows="4"></textarea>
+      </div>
+    </div>
+  </div>
+  
+  <div class="patriotic-divider"></div>
+  
+  &lt;!-- Submission Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h3 class="mb-0">Review Submission</h3>
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="acknowledgment" name="Acknowledgment" value="I confirm this self-assessment is accurate and complete" required>
+          <label class="form-check-label" for="acknowledgment">
+            I confirm that the information provided in this self-assessment is accurate and complete to the best of my knowledge.
+          </label>
+          <div class="invalid-feedback">
+            You must confirm your self-assessment before submitting.
+          </div>
+        </div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="signature" class="form-label">Digital Signature</label>
+        <input type="text" class="form-control" id="signature" name="Digital Signature" required>
+        <div class="invalid-feedback">
+          Please enter your digital signature (full name).
+        </div>
+        <div class="form-text">Type your full name as your digital signature.</div>
+      </div>
+      
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date" name="Date" required>
+        <div class="invalid-feedback">
+          Please select the current date.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  &lt;!-- reCAPTCHA v3 -->
+  <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+  
+  <div class="d-grid gap-2">
+    <button class="btn btn-primary" type="submit">Submit Performance Review</button>
+  </div>
+</form>
+
+<script>
+// Update progress bar as form fields are completed
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('performance-form');
+  const progressBar = document.getElementById('form-progress');
+  const requiredFields = form.querySelectorAll('[required]');
+  const totalFields = requiredFields.length;
+  
+  function updateProgress() {
+    let completedFields = 0;
+    requiredFields.forEach(field => {
+      if (field.type === 'radio') {
+        // For radio buttons, check if any in the group is checked
+        const name = field.name;
+        const group = form.querySelectorAll(`input[name="${name}"]:checked`);
+        if (group.length > 0) {
+          completedFields++;
+        }
+      } else if (field.type === 'checkbox') {
+        if (field.checked) {
+          completedFields++;
+        }
+      } else {
+        if (field.value) {
+          completedFields++;
+        }
+      }
+    });
+    
+    // Adjust for radio button groups (count each group only once)
+    const radioGroups = new Set();
+    form.querySelectorAll('input[type="radio"][required]').forEach(radio => {
+      radioGroups.add(radio.name);
+    });
+    
+    const uniqueFields = totalFields - form.querySelectorAll('input[type="radio"][required]').length + radioGroups.size;
+    const percentage = Math.round((completedFields / uniqueFields) * 100);
+    
+    progressBar.style.width = percentage + '%';
+    progressBar.textContent = percentage + '%';
+    progressBar.setAttribute('aria-valuenow', percentage);
+    
+    // Save progress to localStorage
+    localStorage.setItem('performance-progress', percentage);
+  }
+  
+  // Load saved progress
+  const savedProgress = localStorage.getItem('performance-progress');
+  if (savedProgress) {
+    progressBar.style.width = savedProgress + '%';
+    progressBar.textContent = savedProgress + '%';
+    progressBar.setAttribute('aria-valuenow', savedProgress);
+  }
+  
+  // Update progress when fields change
+  requiredFields.forEach(field => {
+    field.addEventListener('change', updateProgress);
+    field.addEventListener('keyup', updateProgress);
+  });
+  
+  // Form validation
+  form.addEventListener('submit', function(event) {
+    if (!form.checkValidity()) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    
+    form.classList.add('was-validated');
+  });
+});
+</script>
