@@ -21,13 +21,13 @@ title: Login
 
 <form id="login-form" class="needs-validation" novalidate>
   <div class="form-floating mb-3">
-    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-    <label for="email">Email address</label>
+    <input type="text" class="form-control" id="username" placeholder="Username" required>
+    <label for="username">Username</label>
     <div class="invalid-feedback">
-      Please enter a valid email address.
+      Please enter your username.
     </div>
   </div>
-  
+
   <div class="form-floating mb-3">
     <input type="password" class="form-control" id="password" placeholder="Password" required>
     <label for="password">Password</label>
@@ -35,23 +35,29 @@ title: Login
       Please enter your password.
     </div>
   </div>
-  
+
   <!-- Honeypot field for bot protection -->
   <div class="d-none">
     <input type="text" name="bot-field" id="bot-field">
   </div>
-  
+
   <div class="form-check mb-3">
     <input class="form-check-input" type="checkbox" value="" id="remember-me">
     <label class="form-check-label" for="remember-me">
       Remember me
     </label>
   </div>
-  
+
   <button class="w-100 btn btn-lg btn-primary" type="submit" id="login-button">Sign in</button>
-  
+
   <div class="mt-3 text-center">
     <a href="#" id="forgot-password-link">Forgot password?</a>
   </div>
 </form>
+
+<div class="mt-4 alert alert-info">
+  <small>
+    <strong>Demo Credentials:</strong> Username: admin | Password: AmericanHR!1
+  </small>
+</div>
 
